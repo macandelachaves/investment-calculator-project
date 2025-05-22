@@ -3,13 +3,15 @@ export default function User({ values, onChange }) {
     <div id="user-input">
       <div className="input-group">
         <div>
-          <label htmlFor="">Intial Investment</label>
+          <label htmlFor="">Initial Investment</label>
           <input
             type="number"
             required
             name="initialInvestment"
-            value={values.annualInvestment}
-            onChange={onChange}
+            value={values.initialInvestment}
+            onChange={(event) =>
+              onChange("initialInvestment", event.target.value)
+            }
           />
         </div>
         <div>
@@ -20,7 +22,9 @@ export default function User({ values, onChange }) {
             required
             name="annualInvestment"
             value={values.annualInvestment}
-            onChange={onChange}
+            onChange={(event) =>
+              onChange("annualInvestment", event.target.value)
+            }
           />
         </div>
       </div>
@@ -32,7 +36,7 @@ export default function User({ values, onChange }) {
             type="number"
             required
             name="expectedReturn"
-            onChange={onChange}
+            onChange={(event) => onChange("expectedReturn", event.target.value)}
             value={values.expectedReturn}
           />{" "}
         </div>
@@ -42,7 +46,7 @@ export default function User({ values, onChange }) {
             type="number"
             required
             name="duration"
-            onChange={onChange}
+            onChange={(event) => onChange("duration", event.target.value)}
             value={values.duration}
           />
         </div>

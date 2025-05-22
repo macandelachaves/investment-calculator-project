@@ -9,14 +9,17 @@ function App() {
     expectedReturn: "",
     duration: "",
   });
-  function handleChange(event) {
-    const { name, value } = event.target;
-    setValues((prevValues) => ({
-      ...prevValues,
-      [name]: value,
-    }));
+
+  function handleChange(inputIdentifier, newValue) {
+    setValues((prevValues) => {
+      return {
+        ...prevValues,
+        [inputIdentifier]: newValue,
+      };
+    });
     console.log(event.target.value);
   }
+
   return (
     <main>
       <div>
