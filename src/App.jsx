@@ -10,6 +10,8 @@ function App() {
     duration: 10,
   });
 
+  const validValue = values.duration > 0;
+
   function handleChange(inputIdentifier, newValue) {
     setValues((prevValues) => {
       return {
@@ -22,12 +24,12 @@ function App() {
 
   return (
     <main>
-      <div>
-        <User values={values} onChange={handleChange} />
-      </div>{" "}
-      <div>
-        <Results values={values} />
-      </div>
+      <User values={values} onChange={handleChange} />
+
+      {validValue && <Results values={values} />}
+      {!validValue && (
+        <p className="center"> Please, enter a duration greater than zero</p>
+      )}
     </main>
   );
 }
